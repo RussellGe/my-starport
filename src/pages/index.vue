@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { TheImageProxy } from '../composables/image'
 const mode = ref(false)
 const toggle = useToggle(mode)
 </script>
@@ -11,10 +12,16 @@ const toggle = useToggle(mode)
       class="m-3 text-sm btn"
       to='/foo'
       >
-      Go
+      Foo
     </RouterLink>
-    <button btn @click="toggle">Toggle</button>
-    <FloatProxy :class="mode? 'w-50 h-50':'w-40 h-60'" rounded-xl/>
+    <RouterLink
+      class="m-3 text-sm btn"
+      to='/bar'
+      >
+      bar
+    </RouterLink>
+    <button btn @click="toggle()">Toggle</button>
+    <TheImageProxy :class="mode? 'w-50 h-50':'w-40 h-60'" rounded-xl/>
     </div>
   </div>
 </template>
